@@ -51,6 +51,8 @@ public class ClusterInfoDTO implements Serializable {
   private Map<String, String> sparkConf;
   @JsonProperty("aws_attributes")
   private AwsAttributesDTO awsAttributes;
+  @JsonProperty("azure_attributes")
+  private AzureAttributes azureAttributes;
   @JsonProperty("node_type_id")
   private String nodeTypeId;
   @JsonProperty("driver_node_type_id")
