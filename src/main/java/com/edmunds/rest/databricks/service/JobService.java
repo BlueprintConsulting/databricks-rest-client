@@ -106,11 +106,19 @@ public interface JobService {
   List<JobDTO> getJobsByRegex(Pattern regex, boolean expandTasks) throws IOException, DatabricksRestException;
 
   /**
+   * Returns a list of all jobs.
+   *
+   * @return A POJO of the Jobs
+   * @see <a href="https://docs.databricks.com/api/latest/jobs.html#list">https://docs.databricks.com/api/latest/jobs.html#list</a>
+   */
+  List<JobDTO> getAllJobs(Boolean expandTasks) throws DatabricksRestException, IOException;
+
+  /**
    * Returns a list of all jobs that are active.
    * @see <a href="https://docs.databricks.com/api/latest/jobs.html#list">https://docs.databricks.com/api/latest/jobs.html#list</a>
    * @return A POJO of the Jobs
    */
-  JobsDTO listAllJobs(int limit, int offset, String name, boolean expandTasks)
+  JobsDTO listAllJobs(int limit, String nextPageToken, String name, boolean expandTasks)
       throws IOException, DatabricksRestException;
 
   /**
